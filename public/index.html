@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://cdn.pixabay.com/photo/2015/03/17/02/01/cubes-677092_1280.png');
+            /* Replace 'your-background-image.jpg' with the path to your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- <header class="container-fluid">
+    <div class="container text-center border shadow  mb-5 bg-body-tertiary mt-5"><h1 class="display-2 mt-4">Toys Project</h1></div>
+    </header> -->
+    <header>
+        <div class="navbar navbar-expand-lg bg-light py-2 shadow">
+            <div class="container-fluid">
+                <div class=" myScale container text-center display-4 mt-4 p-2">Toys Project</div>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="container-fluid ">
+        <div class="container border shadow p-3 mb-5 bg-body-tertiary rounded mt-5">
+            <h3 class="display-6 m-4">User routes:</h3>
+            <table class="table table-striped text-start">
+                <tr class="table-Primary">
+                    <th scope="col">METHOD</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">BODY</th>
+                    <th scope="col">DESCRIPTION</th>
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">POST (register)</td>
+                    <td class="table-Info">/users</td>
+                    <!-- add body  -->
+                    <td class="table-Info text-start">
+                        <pre>
+{
+    "fullName": { "firstName": "Eva", "lastName": "Williams" },
+    "email": "eva.williams@example.com",
+    "password": "evapassword",
+    "role": "admin"
+}
+  </pre>
+
+                    </td>
+                    <td class="table-Info">Add a new user to the data base ,if you want to see the template of valid
+                        user.</td>
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">POST (login)</td>
+                    <td class="table-Info">/users/login</td>
+                    <td class="table-Info text-start">
+                        <pre>
+
+                        
+{
+    "email": "eva.williams@example.com",
+    "password": "evapassword"
+}
+                    </pre> </td>
+                    <td class="table-Info">User login, if the email and password are correct the server will respond
+                        with a token,
+                        if you want to see the template of valid user.</td>
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">DELETE</td>
+                    <td class="table-Info">/users/delete/:idDel</td>
+                    <td class="table-Info">none </td>
+                    <td class="table-Info">Delete a user from the data base.</td>
+                </tr>
+                <tr class="table-light">
+                    <td class="table-light">PUT</td>
+                    <td class="table-light">/users/:idEdit</td>
+                    <td class="table-light text-start">
+                        <pre>
+{
+    "fullName": { "firstName": "Eva", "lastName": "Williams" },
+    "email": "eva.williams@example.com",
+    "password": "evapassword",
+    "role": "admin"
+}
+                    </pre></td>
+                    <td class="table-light">Update user details and save to databace.</td>
+                </tr>
+
+            </table>
+        </div>
+    </section>
+    <section class="container-fluid">
+        <div class="container  border shadow p-3 mb-5 bg-body-tertiary rounded">
+            <h3 class="display-6 m-4">Toys routes:</h3>
+            <table class="table table-striped text-center">
+                <tr class="table-Info">
+                    <th scope="col">METHOD</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">BODY</th>
+                    <th scope="col">DESCRIPTION</th>
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">GET</td>
+                    <td class="table-Info">/toys</td>
+                    <td class="table-Info">none</td>
+                    <td class="table-Info">Get a list of all the toys, will present 10 results per page.</td>
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">GET</td>
+                    <td class="table-Info">/toys/search/s=Toy1</td>
+                    <td class="table-Info">none</td>
+                    <td class="table-Info">search for a toy by searching follwing name or info after the "s=", it will
+                        present 10 results per page.</td>
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">GET</td>
+                    <td class="table-Info">/toys/category/:catName</td>
+                    <td class="table-Info">none</td>
+                    <td class="table-Info"> Get a list of all the toys in toys category, it will present 10 results per
+                        page.</td>
+
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">POST</td>
+                    <td class="table-Info">/toys</td>
+                    <!-- add post req -->
+                    <td class="table-Info text-start">
+                        <pre>
+{
+    "name": "Teddy Bear",
+    "info": "A cuddly companion for kids of all ages.",
+    "category": "Plush",
+    "img_url": "https://example.com/teddy.jpg",
+    "price": 14.99
+}
+                    </pre></td>
+                    <td class="table-Info">Add a new toy to the data base, You need a token for this query ,
+                        if you want to see the template of valid toy</td>
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">PUT</td>
+                    <td class="table-Info">/toys/ID</td>
+                    <!-- check id and body -->
+                    <td class="table-Info text-start"><pre>
+{
+    "name": "Teddy Bear",
+    "info": "A cuddly companion for kids of all ages.",
+    "category": "Plush",
+    "img_url": "https://example.com/teddy.jpg",
+    "price": 14.99
+}
+                                            </pre></td>
+                    <td class="table-Info">Update a toy in the data base,You need a token for this query.</td>
+                </tr>
+                <tr class="table-Info">
+                    <td class="table-Info">DELETE</td>
+                    <td class="table-Info">/toys/ID</td>
+                    <!-- check id and body -->
+                    <td class="table-Info">none</td>
+                    <td class="table-Info">Delete a toy from the data base, You need a token for this query.</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
